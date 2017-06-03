@@ -1,0 +1,23 @@
+# Template file for 'kitty'
+pkgname=kitty
+version=0.2.6
+revision=1
+nopie=true
+python_version=3
+hostmakedepends="pkg-config"
+makedepends="python3-devel ncurses glew-devel fontconfig-devel glfw-devel"
+depends="xrdb xsel glew>=2.0 python3 glfw fontconfig"
+short_desc="A modern, hackable, featureful, OpenGL based terminal emulator"
+maintainer="ibrokemypie <ibrokemypie@bastardi.net>"
+license="GPL-3"
+homepage="https://github.com/kovidgoyal/kitty"
+distfiles="${homepage}/archive/v${version}.tar.gz"
+checksum=fe0922ce1b9f46e7b5402b9348b462d5f91a185b442e3f703940d01dea2fab21
+
+do_build() {
+	python3 setup.py build
+}
+
+do_install() {
+	python3 setup.py --prefix=/usr linux-package
+}
