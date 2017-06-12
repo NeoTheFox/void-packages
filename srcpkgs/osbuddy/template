@@ -1,0 +1,22 @@
+# Template file for 'osbuddy'
+pkgname=osbuddy
+version=1.0.5
+revision=1
+depends="virtual?java-runtime"
+short_desc="Launcher for the OldSchool RuneScape toolkit"
+maintainer="ibrokemypie <ibrokemypie@bastardi.net>"
+build_style=fetch
+license="custom"
+homepage="https://rsbuddy.com/osbuddy"
+distfiles="http://cdn.rsbuddy.com/live/f/loader/OSBuddy.jar"
+skip_extraction="OSBuddy.jar"
+checksum=5470deb346f07071df0ab82574751f5e9402cb213948dd9fb488e984815d229e
+
+do_install() {
+	vmkdir "usr/share/osbuddy"
+	vbin "${FILESDIR}/osbuddy"
+	vinstall "OSBuddy.jar" 644 "/usr/share/osbuddy/"
+	vinstall "${FILESDIR}/osbuddy.png" 644 "/usr/share/pixmaps/"
+	vinstall "${FILESDIR}/osbuddy.desktop" 644 "/usr/share/applications/"
+	vlicense ${FILESDIR}/LICENSE
+}
