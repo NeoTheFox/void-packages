@@ -1,0 +1,39 @@
+# Template file for 'rsu-client'
+pkgname=rsu-client
+version=4.3.5
+revision=1
+depends="virtual?java-runtime perl perl-List-MoreUtils perl-Archive-Extract perl-Config-IniFiles perl-Wx"
+short_desc="RuneScape client for Linux and Unix (RSU-Client,Legacy)"
+maintainer="ibrokemypie <ibrokemypie@bastardi.net>"
+license="GPL-2"
+homepage="https://github.com/HikariKnight/rsu-client"
+distfiles="https://github.com/HikariKnight/rsu-client/archive/v${version}.tar.gz"
+checksum=223e4e38faea6357aa8f8c25b6934b2b73111d05f6f862860d5d547aa1abf57a
+
+do_install() {
+	cd ${wrksrc}/runescape
+
+	rm -rf rsu/3rdParty/
+
+	sed -i 's;opt/runescape;share/rsu;' templates/packaging/usr/games/*
+
+	vbin templates/packaging/usr/games/rsu-settings
+	vbin templates/packaging/usr/games/runescape
+	#vcopy templates/packaging/usr/share/ usr/
+
+	vcopy share/ usr/
+	vmkdir usr/share/rsu
+
+	vcopy rsu/ usr/share/rsu/
+	vcopy bin/ usr/share/rsu/
+
+	#vcopy *.txt usr/share/rsu
+	#vcopy runescape usr/share/rsu
+	#vcopy updater usr/share/rsu
+	#vcopy rsu-settings usr/share/rsu
+	vcopy runescape usr/share/rsu/
+	vcopy rsu-settings usr/share/rsu/
+	vcopy updater usr/share/rsu/
+	vcopy AUTHORS usr/share/rsu/
+	vcopy COPYING usr/share/rsu/
+}
