@@ -1,0 +1,30 @@
+# Template file for 'trickle'
+pkgname=trickle
+version=0.0.0.20150113
+revision=1
+_commit="66551ad94ad3d8af83e1e4422804676ac8762f47"
+# https://travis-ci.org/voidlinux/void-packages/builds/244963468
+only_for_archs="i686 x86_64"
+build_style=gnu-configure
+makedepends="autoconf automake libtool libevent-devel"
+short_desc="Userland bandwidth shaper for Unix-like systems"
+maintainer="ibrokemypie <ibrokemypie@bastardi.net>"
+license="BSD-3"
+homepage="https://github.com/mariusae/trickle"
+# http://monkey.org/~marius/trickle/trickle-1.07.tar.gz exists, but unmaintained and no longer builds
+distfiles="${homepage}/archive/${_commit}.tar.gz>${pkgname}-${version}.tar.gz"
+wrksrc="${pkgname}-${_commit}"
+checksum=615493f25b740e5e74815edc88f04908895756bbf4c41d97960bdb1c59fbe2a9
+
+pre_configure() {
+	autoreconf -if
+}
+
+# that file doesn't exist, and is only mentioned here. Mistake and blocks install
+pre_install() {
+	sed -i -n '/overload_DATA = libtrickle.so/!p' Makefile
+}
+
+post_install() {
+	vlicense LICENSE
+}
