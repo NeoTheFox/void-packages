@@ -1,0 +1,25 @@
+# Template file for 'NXEngine-evo'
+pkgname=NXEngine-evo
+version=2.4.1
+revision=1
+wrksrc=nxengine-evo-${version}
+only_for_archs="i686 x86_64 x86_64-musl"
+build_style=cmake
+makedepends="SDL2-devel libpng-devel SDL2_ttf-devel"
+depends="SDL2 SDL2_ttf libpng"
+short_desc="A somewhat upgraded/refactored version of nxengine"
+maintainer="ibrokemypie <ibrokemypie@bastardi.net>"
+license="GPL-3"
+homepage="https://github.com/isage/nxengine-evo"
+distfiles="https://github.com/isage/nxengine-evo/archive/v${version}.tar.gz"
+checksum=bd3be7e964e445da3e1821f027ecb192b4c62333702e65cc0bae505a85aa16ad
+
+do_install() {
+	vmkdir usr/share/NXEngine-evo
+	vcopy bin/nx usr/share/NXEngine-evo
+	vcopy bin/extract usr/share/NXEngine-evo
+	vcopy "data/" usr/share/NXEngine-evo
+	vbin ${FILESDIR}/nx
+	#vinstall ${FILESDIR}/cavestory.desktop 644 usr/share/applications/
+	#vinstall ${FILESDIR}/cavestory.png 644 usr/share/pixmaps/
+}
