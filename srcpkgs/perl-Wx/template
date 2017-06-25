@@ -1,0 +1,17 @@
+# Template build file for 'perl-Wx'.
+pkgname=perl-Wx
+version=0.9932
+revision=1
+noarch=yes
+wrksrc="Wx-$version"
+build_style=perl-module
+hostmakedepends="perl"
+makedepends="perl-ExtUtils-XSpp perl-Module-Build perl-Alien-wxWidgets"
+depends="perl perl-Alien-wxWidgets"
+short_desc="Perl wrapper for the wxWidgets GUI toolkit"
+maintainer="ibrokemypie <ibrokemypie@bastardi.net>"
+homepage="https://www.wxperl.it/"
+license="Artistic 1, GPL-1"
+distfiles="${CPAN_SITE}/Wx/Wx-${version}.tar.gz"
+checksum=1cfdb6535a0f4676e6f1aab2c9d8e16d577be3eb3b7cc04c8074d685e6651b70
+
