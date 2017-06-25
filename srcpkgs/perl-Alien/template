@@ -1,0 +1,17 @@
+# Template build file for 'perl-Alien'.
+pkgname=perl-Alien
+version=0.94
+revision=1
+noarch=yes
+wrksrc="Alien-$version"
+build_style=perl-module
+hostmakedepends="perl"
+makedepends=""
+depends="perl"
+short_desc="External libraries wrapped up for your viewing pleasure!"
+maintainer="ibrokemypie <ibrokemypie@bastardi.net>"
+homepage="http://search.cpan.org/~plicease/Alien-0.94/lib/Alien.pm"
+license="Artistic 1, GPL-1"
+distfiles="${CPAN_SITE}/Alien/Alien-${version}.tar.gz"
+checksum=407eb9754ab3d1d5323f5aab492ac0270f46debba2c0cffb33da63e361fd8151
+
