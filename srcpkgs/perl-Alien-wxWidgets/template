@@ -1,0 +1,17 @@
+# Template build file for 'perl-Alien-wxWidgets'.
+pkgname=perl-Alien-wxWidgets
+version=0.69
+revision=1
+noarch=yes
+wrksrc="Alien-wxWidgets-$version"
+build_style=perl-ModuleBuild
+hostmakedepends="perl"
+makedepends="perl-Module-Build gtk+-devel pkg-config wxWidgets-devel perl-LWP-Protocol-https perl-Module-Pluggable perl-Alien"
+depends="${hostmakedepends}"
+short_desc="Perl wrapper for the wxWidgets GUI toolkit"
+maintainer="ibrokemypie <ibrokemypie@bastardi.net>"
+homepage="https://www.wxperl.it/"
+license="Artistic 1, GPL-1"
+distfiles="${CPAN_SITE}/Alien/Alien-wxWidgets-${version}.tar.gz"
+checksum=53224e4bbbefff4cf7b63ed9a62963893b9ffd4965d70d96710348f8676de249
+
