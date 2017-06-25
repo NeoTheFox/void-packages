@@ -1,0 +1,17 @@
+# Template build file for 'perl-ExtUtils-XSpp'.
+pkgname=perl-ExtUtils-XSpp
+version=0.18
+revision=1
+noarch=yes
+wrksrc="ExtUtils-XSpp-$version"
+build_style=perl-ModuleBuild
+hostmakedepends="perl perl-Module-Build"
+makedepends=""
+depends="perl"
+short_desc="Perl wrapper for the wxWidgets GUI toolkit"
+maintainer="ibrokemypie <ibrokemypie@bastardi.net>"
+homepage="https://www.wxperl.it/"
+license="Artistic 1, GPL-1"
+distfiles="${CPAN_SITE}/ExtUtils/ExtUtils-XSpp-${version}.tar.gz"
+checksum=9176ad646729e3bd27cf7abf114bedd3424bff1ba61185cfc7d54f3a9223a8ff
+
