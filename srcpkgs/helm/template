@@ -1,0 +1,15 @@
+# Template file for 'helm'
+pkgname=helm
+version=0.8.6
+revision=1
+patch_args="-Np1"
+build_style=gnu-makefile
+make_use_env=1
+hostmakedepends="gcc"
+makedepends="alsa-lib-devel jack-devel libX11-devel libXcursor-devel freetype-devel libXinerama-devel"
+short_desc="A free polyphonic synth with lots of modulation"
+maintainer="ibrokemypie <ibrokemypie@bastardi.net>"
+license="GPL-3"
+homepage="http://tytel.org/helm"
+distfiles="https://github.com/mtytel/helm/archive/v${version}.tar.gz"
+checksum=77f12fae56f68bc4d871c61133c35f540af83c1b35aec9bd73f279513a04b4d9
