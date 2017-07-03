@@ -1,0 +1,19 @@
+# Template file for 'Carla'
+pkgname=Carla
+version=1.9.7
+revision=1
+build_style=gnu-makefile
+python_version=3
+hostmakedepends="pkg-config"
+makedepends="python3-PyQt5-devel-tools python3-PyQt5 libmagic liblo-devel alsa-lib-devel pulseaudio-devel libX11-devel qt5-devel gtk+3-devel fluidsynth-devel fftw-devel mxml-devel zlib-devel python3-rdflib"
+depends="python3 python3-PyQt5"
+short_desc="A fully-featured audio plugin host"
+maintainer="ibrokemypie <ibrokemypie@bastardi.net>"
+license="GPL-3"
+homepage="https://github.com/falkTX/Carla"
+distfiles="https://github.com/falkTX/Carla/archive/${version}.tar.gz"
+checksum=e8d830d2bf9bee9c0c5ca64aa21b683b6e228bfdfcc3da9e6611070d517f7a1d
+
+pre_build() {
+	make features
+}
